@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f4f8;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        text-align: center;
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #0077cc;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Word Counter</h1>
+    <h2>There are {{count}} words in your text.</h2>
+    <a href="{% url 'home' %}">Start Again</a>
+    <h2>Your Text:</h2>
+    <h3>{{ fulltext }}</h3>
+    <h3>Words Count:</h3>
+    <h4>
+      {% for word, wordcount in sortedWords %} {{word}} : {{wordcount}}
+      <br />
+      {% endfor %}
+    </h4>
+    <h3>Characters Count: {{char_count}}</h3>
+  </body>
+</html>
